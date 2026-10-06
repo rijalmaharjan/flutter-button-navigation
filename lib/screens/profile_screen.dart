@@ -8,7 +8,6 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profile'),
-        centerTitle: true,
       ),
 
       body: SafeArea(
@@ -17,8 +16,6 @@ class ProfileScreen extends StatelessWidget {
 
           child: Column(
             children: [
-              const SizedBox(height: 30),
-
               const CircleAvatar(
                 radius: 55,
                 child: Icon(
@@ -27,39 +24,63 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 25),
 
               const Text(
-                'Student Profile',
+                'Milan',
                 style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
                 ),
               ),
 
-              const SizedBox(height: 30),
+              const SizedBox(height: 8),
+
+              const Text(
+                'Student',
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 16,
+                ),
+              ),
+
+              const SizedBox(height: 25),
 
               const ListTile(
-                leading: Icon(Icons.person),
+                leading: Icon(Icons.person_outline),
                 title: Text('Name'),
-                subtitle: Text('ren'),
+                subtitle: Text('Milan'),
               ),
 
               const ListTile(
-                leading: Icon(Icons.school),
+                leading: Icon(Icons.school_outlined),
                 title: Text('Role'),
                 subtitle: Text('Student'),
               ),
 
               const ListTile(
-                leading: Icon(Icons.email),
+                leading: Icon(Icons.email_outlined),
                 title: Text('Email'),
-                subtitle: Text('ren@gmail.com'),
+                subtitle: Text('student@example.com'),
               ),
 
               const SizedBox(height: 20),
 
               FilledButton.icon(
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Edit Profile selected'),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.edit),
+                label: const Text('Edit Profile'),
+              ),
+
+              const SizedBox(height: 10),
+
+              OutlinedButton.icon(
                 onPressed: () {
                   Navigator.pop(context);
                 },
